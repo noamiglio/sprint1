@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Calcular</title>  
+</head>  
+
+<body>  
+
+    <h3>Qual seu consumo de energia em kWattz por mês</h3>  
+    <input id="i_watzMes" type="number"><br> 
+    <h3>Em qual bendeira deseja analisar seu gasto?</h3> 
+    <input id="i_bandeira"><br> 
+
+    <h3>Qual o tamanho do seu galpão?</h3> 
+    <l1>comprimento:</l1><input id="i_comprimento" type="number"> 
+    <l2>largura:</l2><input id="i_largura" type="number"><br> 
+
+    <button onclick="calcular()">Calcular</button> 
+
+    <div id="divMensagem"></div>  
+
+</body>
+</html> 
+
+<script>  
+
+    function calcular() {  
+
+        var KWATTZ = 0.94*30;  
+        var KWATTZMES = Number(i_watzMes.value);  
+        var BANDEIRA = i_bandeira.value; 
+        var AMAR = Number(2.98); 
+        var VERM = Number(6.50); 
+        var VALORTOTAL = KWATTZ * KWATTZMES;  
+        var COMPRIMENTO = Number(i_comprimento.value); 
+        var LARGURA = Number(i_largura.value); 
+        var GALPAOTOTAL = LARGURA * COMPRIMENTO; 
+        var SENSORMOVIMENTO = GALPAOTOTAL/10; 
+        var SENSORTEMPERATURA = GALPAOTOTAL/20; 
+        var BANDVERM = VALORTOTAL*VERM; 
+        var BANDAMAR = VALORTOTAL*AMAR; 
+
+        divMensagem.innerHTML = `Você gasta por mês R$ ${VALORTOTAL} `
+        divMensagem.innerHTML +=` <br> Para o seu galpão você precisará de ${SENSORMOVIMENTO} sensor de movimento.
+`
+
+        if (BANDEIRA += 'amarelo') {
+
+            divMensagem.innerHTML = `<br> Quando sobe pra bandeira amarela você gasta R$ ${BANDAMAR}.`
+
+        }
+
+        if (BANDEIRA += 'vermelha'){
+            
+            divMensagem.innerHTML = `<br> Quando sobe pra bandeira vermelha você gasta R$ ${BANDVERM}`
+        }
+ 
+
+    } 
+
+</script> 
